@@ -39,16 +39,10 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //RaycastHit hit;
-        //
-        //if(Physics.Raycast(transform.position, -transform.up, out hit, playerMask))
-        //{
-        //    transform.position = hit.point;
-        //}
         if(!controller.isGrounded)
         {
-            fallSpeed += fallAccel * Time.deltaTime;
-            Vector3 fallVec = -Vector3.up * fallSpeed * Time.deltaTime;
+            fallSpeed += fallAccel * Time.fixedDeltaTime;
+            Vector3 fallVec = -Vector3.up * fallSpeed * Time.fixedDeltaTime;
             controller.Move(fallVec);
         }
         else
