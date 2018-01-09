@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public float rotationSpeed = 1.0f;
     public float baseZoom = 10.0f;
-    public float zoomSpeed = 100.0f;
+    public float zoomSpeed = 10.0f;
     public float verticalLookMin = 10.0f;
     public float verticalLookMax = 60.0f;
 
@@ -36,6 +36,8 @@ public class CameraController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(mouseYDelta,
                                               transform.parent.rotation.eulerAngles.y,
                                               transform.parent.rotation.eulerAngles.z);
+        transform.position += Vector3.up;
+        transform.position += transform.right * (zoom / 10);
         transform.position -= transform.forward * zoom;
     }
 }

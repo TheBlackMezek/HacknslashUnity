@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
     private CharacterController controller;
     private Transform camTrans;
 
-
+    
 
     private void Start()
     {
