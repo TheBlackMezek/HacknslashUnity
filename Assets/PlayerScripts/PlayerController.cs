@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, KillableInterface {
 
@@ -118,7 +119,20 @@ public class PlayerController : MonoBehaviour, KillableInterface {
     {
         health = 0;
         Damage(-maxHealth);
-        transform.position = new Vector3(0, 5, 0);
+        Cursor.lockState = CursorLockMode.None;
+        StartCoroutine(AsynchronousLoadScene());
+        //transform.position = new Vector3(0, 5, 0);
+    }
+
+    IEnumerator AsynchronousLoadScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/MainMenu");
+        Debug.Log("Beginning load");
+        while (!asyncLoad.isDone)
+        {
+            Debug.Log("Loading...");
+            yield return null;
+        }
     }
 
 }
