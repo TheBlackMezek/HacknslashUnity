@@ -10,11 +10,14 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
 
 
     private float health;
+    public bool onGround = true;
 
     private GameObject player;
     private NavMeshAgent agent;
     private Rigidbody body;
     private Material mat;
+    
+
 
 
 	// Use this for initialization
@@ -35,8 +38,9 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
         {
             body.useGravity = true;
             agent.enabled = false;
+            onGround = false;
         }
-        else
+        else if(onGround)
         {
             body.useGravity = false;
             agent.enabled = true;
@@ -47,7 +51,9 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
         {
             Kill();
         }
+
     }
+    
 
 
     public void Damage(float dmg)
@@ -75,6 +81,10 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
         {
             ki.Damage(damageOnTouch * Time.fixedDeltaTime);
         }
+        if (collision.contacts[0].normal.y > 0)
+        {
+            onGround = true;
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -84,6 +94,10 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
         if (ki != null && ai == null)
         {
             ki.Damage(damageOnTouch * Time.fixedDeltaTime);
+        }
+        if (collision.contacts[0].normal.y > 0)
+        {
+            onGround = true;
         }
     }
 

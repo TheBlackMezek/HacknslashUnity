@@ -113,6 +113,7 @@ MonoBehaviour:
   maxHealth: 10
   damageOnTouch: 25
   ragdollThreshold: 2
+  onGround: 1
 --- !u!136 &136950843907874576
 CapsuleCollider:
   m_ObjectHideFlags: 1
