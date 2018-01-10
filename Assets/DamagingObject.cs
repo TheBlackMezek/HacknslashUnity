@@ -8,7 +8,7 @@ public class DamagingObject : MonoBehaviour {
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
         KillableInterface ki = collision.gameObject.GetComponent<KillableInterface>();
@@ -18,7 +18,7 @@ public class DamagingObject : MonoBehaviour {
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    protected void OnCollisionStay(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
         KillableInterface ki = collision.gameObject.GetComponent<KillableInterface>();
