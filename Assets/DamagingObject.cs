@@ -10,7 +10,6 @@ public class DamagingObject : MonoBehaviour {
 
     protected void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         KillableInterface ki = collision.gameObject.GetComponent<KillableInterface>();
         if (ki != null)
         {
@@ -20,7 +19,6 @@ public class DamagingObject : MonoBehaviour {
 
     protected void OnCollisionStay(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         KillableInterface ki = collision.gameObject.GetComponent<KillableInterface>();
         if (ki != null)
         {

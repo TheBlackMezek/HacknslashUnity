@@ -42,6 +42,11 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
             agent.enabled = true;
             agent.destination = player.transform.position;
         }
+
+        if(transform.position.y < 0)
+        {
+            Kill();
+        }
     }
 
 
