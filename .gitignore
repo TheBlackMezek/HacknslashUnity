@@ -2,5 +2,6 @@
 .vscode/
 Library/
 Temp/
+Builds/
 *.csproj
 *.sln
