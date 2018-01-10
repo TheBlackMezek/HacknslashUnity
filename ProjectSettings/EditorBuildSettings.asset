@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CrazyPlats.unity
+    guid: 679c272bfd0536f4ab958977859af06a
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 765032ba3660137458a1591b37c0b1af
   - enabled: 1

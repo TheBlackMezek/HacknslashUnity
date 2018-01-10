@@ -10,7 +10,7 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
 
 
     private float health;
-    public bool onGround = true;
+    public bool onGround = false;
 
     private GameObject player;
     private NavMeshAgent agent;

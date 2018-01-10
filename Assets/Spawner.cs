@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour {
             {
                 GameObject spawn = Instantiate(prefabToSpawn);
                 spawn.transform.position = transform.position;
+                spawn.SetActive(true);
             }
         }
 	}
