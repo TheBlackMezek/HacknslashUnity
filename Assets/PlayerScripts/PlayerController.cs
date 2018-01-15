@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour, KillableInterface {
     public float fallAccel = 10.0f;
     public float jumpImpulse = 30.0f;
     public float rotationSpeed = 2.0f;
-    public LayerMask playerMask;
+    public float animationSpeed = 0.5f;
 
+    public LayerMask playerMask;
+    public Animator animator;
 
     private float health;
 
@@ -53,6 +55,15 @@ public class PlayerController : MonoBehaviour, KillableInterface {
         verticalAxis   = Input.GetAxis("Vertical");
         horizontalAxis = Input.GetAxis("Horizontal");
 
+        if(controller.velocity.magnitude > 0)
+        {
+            animator.SetBool("IsWalking", true);
+            animator.SetFloat("WalkSpeed", controller.velocity.magnitude * animationSpeed);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
     }
 
     private void FixedUpdate()

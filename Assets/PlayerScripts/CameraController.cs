@@ -10,13 +10,13 @@ public class CameraController : MonoBehaviour {
     public float verticalLookMin = 10.0f;
     public float verticalLookMax = 60.0f;
 
-    private Transform playerTrans;
+    public Transform playerTrans;
+
     private float mouseYDelta = 0;
     private float zoom;
 
     // Use this for initialization
     void Start () {
-        playerTrans = transform.parent.Find("PlayerBody");
         zoom = baseZoom;
     }
 	
