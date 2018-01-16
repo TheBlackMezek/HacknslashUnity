@@ -16,6 +16,7 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
     private NavMeshAgent agent;
     private Rigidbody body;
     private Material mat;
+    private ScoreManager scoreManager;
     
 
 
@@ -29,6 +30,8 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
         agent = GetComponent<NavMeshAgent>();
         body = GetComponent<Rigidbody>();
         mat = GetComponent<MeshRenderer>().material;
+
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 	
 	// Update is called once per frame
@@ -70,6 +73,7 @@ public class simpleAIMoveTo : MonoBehaviour, KillableInterface {
 
     public void Kill()
     {
+        scoreManager.AddScore(1);
         Destroy(gameObject);
     }
 
